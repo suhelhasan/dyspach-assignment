@@ -1,4 +1,4 @@
-# Task Tracker App [LIVE](https://dyspach.vercel.app/)
+# Task Tracker App ([LIVE](https://dyspach.vercel.app/))
 
 # Features
 

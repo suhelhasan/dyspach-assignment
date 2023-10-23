@@ -7,7 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import "./style.css";
 
-export default function Add() {
+export default function TaskForm() {
   const { data, saveData, updateData, activeEditID } = useContext(Context);
   const [startDate, setStartDate] = useState(new Date());
   const [title, setTitle] = useState("");

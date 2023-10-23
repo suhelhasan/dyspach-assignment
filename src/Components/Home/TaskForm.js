@@ -23,7 +23,7 @@ export default function Add() {
       setDescription("");
       setStartDate(new Date());
     }
-  }, [activeEditID]);
+  }, [activeEditID, data]);
 
   let onSave = (e) => {
     e.preventDefault();

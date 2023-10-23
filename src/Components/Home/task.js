@@ -1,18 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Context from "../../Context/context";
 
 export default function Task({ idOfTask }) {
-  const {
-    data,
-    saveData,
-    updateData,
-    deleteData,
-    activeEditID,
-    setActiveEditID,
-  } = useContext(Context);
+  const { data, updateData, deleteData, activeEditID, setActiveEditID } =
+    useContext(Context);
 
   let toggleTask = (id) => {
     let obj = { ...data[id] };

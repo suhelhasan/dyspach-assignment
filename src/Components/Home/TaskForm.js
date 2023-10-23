@@ -23,7 +23,7 @@ export default function TaskForm() {
       setDescription("");
       setStartDate(new Date());
     }
-  }, [activeEditID, data]);
+  }, [activeEditID]);
 
   let onSave = (e) => {
     e.preventDefault();

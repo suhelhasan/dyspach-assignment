@@ -54,6 +54,3 @@ code {
 .table > :not(caption) > * > * {
   padding: 0.8rem 1.3rem !important;
 }
-/* .todoHome {
-  padding: 5px !important;
-} */

@@ -8,18 +8,11 @@ import "react-toastify/dist/ReactToastify.css";
 // import "./style.css";
 
 export default function Add() {
-  const {
-    data,
-    saveData,
-    updateData,
-    activeEditID,
-    setActiveEditID,
-    // showToast,
-  } = useContext(Context);
+  const { data, saveData, updateData, activeEditID } = useContext(Context);
   const [startDate, setStartDate] = useState(new Date());
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const notify = () => toast("Wow so easy!");
+
   useEffect(() => {
     if (activeEditID) {
       setTitle(data[activeEditID].title);

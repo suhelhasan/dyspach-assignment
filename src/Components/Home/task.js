@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
+
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Context from "../../Context/context";
-import "./style.css";
-export default function Task() {
+
+export default function Task({ idOfTask }) {
   const {
     data,
     saveData,
@@ -30,90 +31,69 @@ export default function Task() {
     }
   };
   return (
-    <>
-      <br className='my-4' />
+    <tr>
+      <td>
+        <input
+          type='checkbox'
+          defaultChecked={data[idOfTask].completed}
+          onChange={() => toggleTask(idOfTask)}
+          aria-label='...'
+        />
+      </td>
+      <td>
+        <p
+          className={`small fw-normal mb-0 ${
+            data[idOfTask].completed && "linethrough"
+          }`}
+        >
+          {data[idOfTask].title}
+        </p>
+      </td>
+      <td>
+        <p
+          className={`small fw-normal mb-0 ${
+            data[idOfTask].completed && "linethrough"
+          }`}
+        >
+          {data[idOfTask].description}
+        </p>
+      </td>
 
-      <table className='table rounded'>
-        <thead>
-          <tr>
-            <th>Select</th>
-            <th>Title</th>
-            <th>Description</th>
+      <td>
+        <p
+          className={`small fw-normal mb-0 ${
+            data[idOfTask].completed && "linethrough"
+          }`}
+        >
+          <i className='fas fa-hourglass-half me-2 text-warning'></i>
+          {new Date(data[idOfTask].dueDate).toLocaleDateString()}
+        </p>
+      </td>
+      <td>
+        <a
+          href='#!'
+          className='text-info'
+          data-mdb-toggle='tooltip'
+          title='Edit todo'
+        >
+          <i
+            className='fas fa-pencil-alt me-3'
+            onClick={() => editTask(idOfTask)}
+          ></i>
+        </a>
 
-            <th>Due Date</th>
-            <th>Edit / Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.keys(data).length > 0 &&
-            Object.keys(data).map((each) => (
-              <tr>
-                <td>
-                  <input
-                    type='checkbox'
-                    defaultChecked={data[each].completed}
-                    onChange={() => toggleTask(each)}
-                    aria-label='...'
-                  />
-                </td>
-                <td>
-                  <p
-                    className={`small fw-normal mb-0 ${
-                      data[each].completed && "linethrough"
-                    }`}
-                  >
-                    {data[each].title}
-                  </p>
-                </td>
-                <td>
-                  <p
-                    className={`small fw-normal mb-0 ${
-                      data[each].completed && "linethrough"
-                    }`}
-                  >
-                    {data[each].description}
-                  </p>
-                </td>
-
-                <td>
-                  <p
-                    className={`small fw-normal mb-0 ${
-                      data[each].completed && "linethrough"
-                    }`}
-                  >
-                    <i className='fas fa-hourglass-half me-2 text-warning'></i>
-                    {new Date(data[each].dueDate).toLocaleDateString()}
-                  </p>
-                </td>
-                <td>
-                  <a
-                    href='#!'
-                    className='text-info'
-                    data-mdb-toggle='tooltip'
-                    title='Edit todo'
-                  >
-                    <i
-                      className='fas fa-pencil-alt me-3'
-                      onClick={() => editTask(each)}
-                    ></i>
-                  </a>
-
-                  <a
-                    href='#!'
-                    className='text-danger'
-                    data-mdb-toggle='tooltip'
-                    title='Delete todo'
-                  >
-                    <i
-                      className='fas fa-trash-alt'
-                      onClick={() => deleteTask(each)}
-                    ></i>
-                  </a>
-                </td>
-              </tr>
-            ))}
-        </tbody>
-      </table>
-    </>
+        <a
+          href='#!'
+          className='text-danger'
+          data-mdb-toggle='tooltip'
+          title='Delete todo'
+        >
+          <i
+            className='fas fa-trash-alt'
+            onClick={() => deleteTask(idOfTask)}
+          ></i>
+        </a>
+      </td>
+    </tr>
   );
 }

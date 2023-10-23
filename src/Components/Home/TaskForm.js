@@ -3,14 +3,23 @@ import "bootstrap/dist/css/bootstrap.css";
 import Context from "../../Context/context";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
-import "./style.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// import "./style.css";
 
 export default function Add() {
-  const { data, saveData, updateData, activeEditID, setActiveEditID } =
-    useContext(Context);
+  const {
+    data,
+    saveData,
+    updateData,
+    activeEditID,
+    setActiveEditID,
+    // showToast,
+  } = useContext(Context);
   const [startDate, setStartDate] = useState(new Date());
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const notify = () => toast("Wow so easy!");
   useEffect(() => {
     if (activeEditID) {
       setTitle(data[activeEditID].title);
@@ -22,6 +31,7 @@ export default function Add() {
       setStartDate(new Date());
     }
   }, [activeEditID]);
+
   let onSave = (e) => {
     e.preventDefault();
     let obj = {
@@ -31,10 +41,15 @@ export default function Add() {
       completed: false,
     };
 
-    saveData(obj);
-    setDescription("");
-    setTitle("");
-    setStartDate(new Date());
+    if (obj.title.length > 3 && obj.description.length > 3) {
+      toast.success("Task Added");
+      saveData(obj);
+      setDescription("");
+      setTitle("");
+      setStartDate(new Date());
+    } else if (obj.title.length <= 3 || obj.description.length <= 3) {
+      toast.warning("Please write proper title and description");
+    }
   };
   let update = (e) => {
     e.preventDefault();
@@ -44,12 +59,20 @@ export default function Add() {
       dueDate: startDate,
       completed: false,
     };
-
-    updateData(activeEditID, obj);
+    if (obj.title.length > 3 && obj.description.length > 3) {
+      toast.success("Task Updated");
+      updateData(activeEditID, obj);
+      setDescription("");
+      setTitle("");
+      setStartDate(new Date());
+    } else if (obj.title.length <= 3 || obj.description.length <= 3) {
+      toast.warning("Please write proper title and description");
+    }
   };
 
   return (
     <div className='pb-2'>
+      <ToastContainer />
       <div className='card'>
         <div className='card-body'>
           <label>Title: </label>

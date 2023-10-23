@@ -1,21 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../Components/Home";
-// import Blogs from "../Components/Blogs/Blogs";
-// import Post from "../Components/Blogs/Post/Post";
-// import NotFound from "../Components/NotFound/PageNotFound";
-// import Projects from "../Components/Projects/Projects";
+import NotFound from "../Components/NotFound";
 
-export default function Routing({ devDetails, github }) {
+export default function Routing() {
   return (
     <div>
       <Routes>
         <Route path='/' element={<Home />} />
-
-        {/* <Route exact path='/blog' component={Blogs} />
-
-        <Route exact path='/projects' component={Projects} /> */}
-        {/* <Route component={NotFound} /> */}
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   );

@@ -6,7 +6,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -20,4 +23,34 @@ code {
 }
 #list1 .select-input.form-control[readonly]:not([disabled]) {
   background-color: #fbfbfb;
+}
+.linethrough {
+  text-decoration: line-through !important;
+}
+.react-datepicker-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.react-datepicker-wrapper input {
+  width: 100%;
+  min-height: calc(1.5em + 1rem + calc(var(--bs-border-width) * 2));
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: var(--bs-border-radius-lg);
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  /* height: 40px !important; */
+}
+
+.btn-dataSave {
+  width: 100% !important;
+}
+.rounded {
+  overflow: hidden;
+  padding: 20px !important;
+}
+.table > :not(caption) > * > * {
+  padding: 0.8rem 1.3rem;
 }

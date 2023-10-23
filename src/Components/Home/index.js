@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 
 import Context from "../../Context/context";
-import Add from "./add";
-import Task from "./task";
+import TaskForm from "./TaskForm";
+import TaskList from "./TaskList";
 
 export default function Index() {
   const { data, saveData } = useContext(Context);
@@ -24,8 +24,8 @@ export default function Index() {
                 My Todos
               </p>
 
-              <Add />
-              <Task />
+              <TaskForm />
+              <TaskList />
             </div>
           </div>
         </div>

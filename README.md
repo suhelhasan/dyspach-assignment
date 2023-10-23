@@ -1,3 +1,24 @@
+# Task Tracker App
+
+# Features
+
+- Users should be able to add a task with a title, description, and due date.
+- Users should be able to mark tasks as completed.
+- Users should be able to edit existing tasks.
+- Users should be able to delete tasks.
+- Implement basic validation for task creation.
+- Local storage.
+- Routing.
+
+# NPM Packages Used
+
+- react-bootstrap (for styling)
+- react-datepicker (to select date)
+- react-router-dom (routing)
+- react-toastify (to show notification)
+- sass (enhancing css with more features)
+- uuid (to generate unique id)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
